@@ -71,16 +71,55 @@ Com base na pontuação, o algoritmo classifica o perfil do estudante em três f
 
 ---
 
-## 4. Como Executar e Testar (Para Tirar Prints da Documentação)
+## 4. Links Oficiais (Deploy em Nuvem) e Execução Local
 
-### Opção A: Versão Web (HTML/CSS/JS)
-1. Abra a pasta `prototipo_talita/versao_web/`.
-2. Dê dois cliques no arquivo `index.html` para abrir no navegador (Chrome, Edge, etc.).
+* 🌐 **Versão Web Mobile (GitHub Pages):** https://skyzinha-chan.github.io/feed-seguro-eca-digital/versao_web/
+* 🐍 **Versão Python (Streamlit Cloud):** https://feed-seguro-eca-digital.streamlit.app/
+* 📂 **Repositório Oficial no GitHub:** https://github.com/skyzinha-chan/feed-seguro-eca-digital
 
-### Opção B: Versão Python (Streamlit)
-1. No terminal, dentro da pasta `prototipo_talita/versao_streamlit/`, execute:
-   ```powershell
-   pip install -r requirements.txt
-   streamlit run app.py
+### Execução Local (Opcional)
+* **Versão Web:** Abra `prototipo_talita/versao_web/index.html` no navegador.
+* **Versão Python (Streamlit):**
+  ```powershell
+  python -m pip install -r prototipo_talita/versao_streamlit/requirements.txt
+  python -m streamlit run prototipo_talita/versao_streamlit/app.py
+  ```
+
+---
+
+## 5. Onde Atualizar Conforme os Colegas Entregarem as Partes Deles
+
+### 5.1. No Código-Fonte (Integração Técnica)
+1. **Quando o Leonardo (Integrante A — Conteúdo/ECA Digital) enviar novas situações-problema:**
+   * Na **Versão Web**: atualizar a lista `postsDoFeed` no início do arquivo [`versao_web/script.js`](./versao_web/script.js).
+   * Na **Versão Streamlit**: atualizar a lista `POSTS_DO_FEED` no arquivo [`versao_streamlit/app.py`](./versao_streamlit/app.py).
+2. **Quando o Adriano (Integrante C — Visual/Design) enviar imagens, cores ou banners:**
+   * Na **Versão Web**: atualizar as cores/estilos em [`versao_web/style.css`](./versao_web/style.css) e a estrutura em [`versao_web/index.html`](./versao_web/index.html).
+   * Na **Versão Streamlit**: atualizar o bloco `<style>` no topo de [`versao_streamlit/app.py`](./versao_streamlit/app.py).
+3. **Para atualizar os links online (GitHub Pages e Streamlit Cloud) após qualquer mudança:**
+   Basta rodar no terminal (dentro da pasta `prototipo_talita`):
+   ```bash
+   git add .
+   git commit -m "atualiza posts e visual"
+   git push
    ```
+   *(Tanto o site do GitHub Pages quanto o `feed-seguro-eca-digital.streamlit.app` atualizam sozinhos em segundos após o `git push`!)*
+
+---
+
+## 6. Diário de Evolução e Testes da Programação (Para o Relatório Final — Itens 12 a 18)
+
+*(Vá preenchendo os tópicos abaixo conforme o grupo avançar para entregar ao Denner e ao Adriano no Relatório Final)*:
+
+* **Versão escolhida pelo grupo após votação:** `[ ] Versão Web (HTML/JS)` / `[ ] Versão Python (Streamlit)` / `[ ] Ambas`
+* **Integração com o Conteúdo (Leonardo):**
+  * *Data:* ___/___/2026 — *O que foi ajustado nos posts:* (ex.: "Foram adicionados X novos posts sobre o ECA Digital na lista de dados").
+* **Integração com o Design (Adriano):**
+  * *Data:* ___/___/2026 — *O que foi ajustado na interface:* (ex.: "Foram inseridas novas cores/ícones nos cards do feed").
+* **Registro de Testes e Correções (Ciclo IDEIA → PROTÓTIPO → TESTE → CORREÇÃO → RESULTADO):**
+  1. *A aplicação web funciona sem travar?* Sim, testada via deploy em nuvem no celular e computador.
+  2. *O usuário consegue entender como classificar os posts?* (Anotar feedback dos testes com colegas/adolescentes).
+  3. *O diagnóstico educativo final está sendo gerado corretamente?* Sim, contabilizando acertos, erros e percentual com feedback por post.
+  4. *Dificuldades encontradas na programação e soluções:* (ex.: "Configuração inicial do ambiente Streamlit e deploy em nuvem resolvidos via repositório GitHub e Streamlit Community Cloud").
+
 

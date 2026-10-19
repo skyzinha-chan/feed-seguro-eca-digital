@@ -12,7 +12,7 @@ Protótipo funcional desenvolvido para a disciplina **Tópicos Especiais III** �
 | Versão | Tecnologia | Como acessar / testar |
 | :--- | :--- | :--- |
 | **1. Versão Web Mobile** | HTML5 + CSS3 + JavaScript | 👉 **[Abrir Versão Web Online (GitHub Pages)](https://skyzinha-chan.github.io/feed-seguro-eca-digital/versao_web/)** |
-| **2. Versão Python** | Python + Streamlit | Código em [`versao_streamlit/app.py`](./versao_streamlit/app.py) (pronto para deploy no [Streamlit Cloud](https://share.streamlit.io)) |
+| **2. Versão Python (Streamlit)** | Python + Streamlit | 👉 **[Abrir Versão Streamlit Online](https://feed-seguro-eca-digital.streamlit.app/)** |
 
 ---
 
@@ -26,3 +26,4 @@ Protótipo funcional desenvolvido para a disciplina **Tópicos Especiais III** �
   * `app.py` — Aplicação completa em Streamlit.
   * `requirements.txt` — Dependências para deploy no Streamlit Cloud.
 * 📄 **[`RASCUNHO_PARTE_TALITA.md`](./RASCUNHO_PARTE_TALITA.md)**: Documentação técnica e fluxograma lógico do algoritmo para o Relatório Final.
+
