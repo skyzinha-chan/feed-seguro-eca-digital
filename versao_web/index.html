@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Seguro - Simulador de Riscos Digitais (ECA Digital)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Moldura de Smartphone para simular o uso mobile -->
+    <div class="phone-container">
+        
+        <!-- Cabeçalho do App (Estilo Rede Social) -->
+        <header class="app-header">
+            <div class="header-top">
+                <div class="logo-area">
+                    <span class="logo-icon">🛡️</span>
+                    <div>
+                        <h1>Feed Seguro</h1>
+                        <p class="subtitle">Simulador ECA Digital</p>
+                    </div>
+                </div>
+                <div class="score-badge" id="header-progress">
+                    Post <span id="current-index-display">1</span>/<span id="total-posts-display">6</span>
+                </div>
+            </div>
+
+            <!-- Barra de Progresso -->
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
+        </header>
+
+        <!-- Área Principal: Tela Inicial, Feed Interativo ou Diagnóstico Final -->
+        <main class="app-content">
+
+            <!-- 1. TELA DE BOAS-VINDAS -->
+            <section id="welcome-screen" class="screen active">
+                <div class="welcome-card">
+                    <div class="welcome-icon">📱🔍</div>
+                    <h2>Bem-vindo(a) ao Feed Seguro!</h2>
+                    <p>
+                        Você está prestes a navegar por um feed de rede social simulado. 
+                        Sua missão é analisar cada postagem ou mensagem e decidir:
+                    </p>
+                    <div class="instruction-pills">
+                        <span class="pill safe-pill">✅ Seguro</span>
+                        <span>ou</span>
+                        <span class="pill danger-pill">⚠️ Perigo</span>
+                    </div>
+                    <p class="eca-note">
+                        <strong>Objetivo Educativo (ECA Digital):</strong> Aprender na prática a identificar golpes, perfis falsos, exposição de dados pessoais e situações de risco nas redes.
+                    </p>
+                    <button id="btn-start" class="btn-primary">Iniciar Simulação 🚀</button>
+                </div>
+            </section>
+
+            <!-- 2. TELA DO FEED INTERATIVO -->
+            <section id="feed-screen" class="screen">
+                <!-- Card do Post Atual -->
+                <article class="post-card" id="post-card">
+                    <div class="post-header">
+                        <div class="avatar" id="post-avatar">👤</div>
+                        <div class="user-info">
+                            <div class="user-name-row">
+                                <strong id="post-author">Nome do Perfil</strong>
+                                <span class="badge-type" id="post-type-badge">Post no Feed</span>
+                            </div>
+                            <span class="user-handle" id="post-handle">@usuario • há 15 min</span>
+                        </div>
+                    </div>
+
+                    <div class="post-body">
+                        <p id="post-text">Texto da publicação aparecerá aqui...</p>
+                        
+                        <!-- Elemento visual simulado do post (link, imagem/banner do post) -->
+                        <div class="post-media" id="post-media">
+                            <div class="media-icon" id="post-media-icon">🔗</div>
+                            <div class="media-Texts">
+                                <strong id="post-media-title">Título do Link ou Mídia</strong>
+                                <span id="post-media-url">www.exemplo.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-stats">
+                        <span id="post-likes">❤️ 124 curtidas</span>
+                        <span id="post-comments">💬 18 comentários</span>
+                    </div>
+                </article>
+
+                <!-- Botões de Decisão ("Seguro" ou "Perigo") -->
+                <div class="decision-area" id="decision-buttons">
+                    <p class="decision-prompt">Como você classifica esta situação?</p>
+                    <div class="btn-group">
+                        <button id="btn-safe" class="btn-choice btn-safe" onclick="avaliarPost('SEGURO')">
+                            ✅ Seguro
+                        </button>
+                        <button id="btn-danger" class="btn-choice btn-danger" onclick="avaliarPost('PERIGO')">
+                            ⚠️ Perigo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback Imediato após a escolha -->
+                <div class="feedback-box hidden" id="feedback-box">
+                    <h3 id="feedback-title">Resultado</h3>
+                    <p id="feedback-explanation">Explicação detalhada sobre o post.</p>
+                    <div class="eca-tag" id="feedback-eca">📌 Pilar ECA Digital: Proteção de Dados</div>
+                    <button id="btn-next" class="btn-primary" onclick="proximoPost()">Próximo Post ➡️</button>
+                </div>
+            </section>
+
+            <!-- 3. TELA DE DIAGNÓSTICO EDUCATIVO FINAL -->
+            <section id="result-screen" class="screen">
+                <div class="result-card">
+                    <div class="result-badge" id="result-icon">🏆</div>
+                    <h2 id="result-level-title">Diagnóstico Educativo</h2>
+                    <p class="result-subtitle" id="result-summary">Você concluiu a simulação!</p>
+
+                    <!-- Placar de Acertos e Erros -->
+                    <div class="score-grid">
+                        <div class="score-box correct">
+                            <span class="score-num" id="score-correct">0</span>
+                            <span class="score-label">Acertos</span>
+                        </div>
+                        <div class="score-box wrong">
+                            <span class="score-num" id="score-wrong">0</span>
+                            <span class="score-label">Erros</span>
+                        </div>
+                        <div class="score-box percent">
+                            <span class="score-num" id="score-percent">0%</span>
+                            <span class="score-label">Aproveitamento</span>
+                        </div>
+                    </div>
+
+                    <!-- Texto do Diagnóstico Personalizado -->
+                    <div class="diagnostic-message" id="diagnostic-text"></div>
+
+                    <!-- Revisão Detalhada / Recomendações Educativas -->
+                    <div class="recommendations-section">
+                        <h3>📋 Análise por Situação & ECA Digital</h3>
+                        <div id="review-list" class="review-list"></div>
+                    </div>
+
+                    <button id="btn-restart" class="btn-primary" onclick="reiniciarSimulador()">
+                        🔄 Jogar Novamente
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Rodapé estilo navegação de app mobile -->
+        <footer class="app-footer">
+            <span>🏠 Início</span>
+            <span>🛡️ ECA Digital</span>
+            <span>👤 Perfil Protegido</span>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
