@@ -113,7 +113,7 @@ Com base na pontuação, o algoritmo classifica o perfil do estudante em três f
 
 * **Versão escolhida pelo grupo após votação:** `[ ] Versão Web (HTML/JS)` / `[ ] Versão Python (Streamlit)` / `[ ] Ambas`
 * **Integração com o Conteúdo (Leonardo):**
-  * *Data:* **20/10/2026** — *O que foi ajustado nos posts:* Foram integrados no código (tanto em `versao_web/script.js` quanto em `versao_streamlit/app.py`) os **10 cenários oficiais do ECA Digital** elaborados pelo Leonardo:
+  * *Data:* **20/10/2026** — *O que foi ajustado nos posts:* Foram **adicionados aos 6 cenários iniciais da Talita** os **10 novos cenários oficiais do ECA Digital** elaborados pelo Leonardo (totalizando **16 situações-problema** tanto em `versao_web/script.js` quanto em `versao_streamlit/app.py`):
     1. *Suspensão e Conteúdo Nocivo (Caso Discord)* (`@comunidade_secreta` — **PERIGO**);
     2. *Coleta Ilegal de Dados e Publicidade* (`@quiz_divertido_br` — **PERIGO**);
     3. *Informação Segura* (`@safernet_oficial` — **SEGURO**);
