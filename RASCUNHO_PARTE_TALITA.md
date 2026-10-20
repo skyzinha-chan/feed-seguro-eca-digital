@@ -113,7 +113,17 @@ Com base na pontuação, o algoritmo classifica o perfil do estudante em três f
 
 * **Versão escolhida pelo grupo após votação:** `[ ] Versão Web (HTML/JS)` / `[ ] Versão Python (Streamlit)` / `[ ] Ambas`
 * **Integração com o Conteúdo (Leonardo):**
-  * *Data:* ___/___/2026 — *O que foi ajustado nos posts:* (ex.: "Foram adicionados X novos posts sobre o ECA Digital na lista de dados").
+  * *Data:* **20/10/2026** — *O que foi ajustado nos posts:* Foram integrados no código (tanto em `versao_web/script.js` quanto em `versao_streamlit/app.py`) os **10 cenários oficiais do ECA Digital** elaborados pelo Leonardo:
+    1. *Suspensão e Conteúdo Nocivo (Caso Discord)* (`@comunidade_secreta` — **PERIGO**);
+    2. *Coleta Ilegal de Dados e Publicidade* (`@quiz_divertido_br` — **PERIGO**);
+    3. *Informação Segura* (`@safernet_oficial` — **SEGURO**);
+    4. *Jogos de Apostas e Publicidade Ilegal* (`@influencer_milionario` — **PERIGO**);
+    5. *Superexposição e Vigilantismo* (`@vlog_da_bia` — **PERIGO**);
+    6. *Discurso de Ódio / Racismo* (`@verdade_oculta_00` — **PERIGO**);
+    7. *Informação Científica Segura* (`@cetic_br_oficial` — **SEGURO**);
+    8. *Cyberbullying / Exposição de Imagens Íntimas* (`@fofocas_da_escola` — **PERIGO**);
+    9. *Fraudes Bancárias Digitais (Golpes)* (`@atendimento_banco_seguro` — **PERIGO**);
+    10. *Uso Consciente e Defesa do Consumidor* (`@ministerio_justica` — **SEGURO**).
 * **Integração com o Design (Adriano):**
   * *Data:* ___/___/2026 — *O que foi ajustado na interface:* (ex.: "Foram inseridas novas cores/ícones nos cards do feed").
 * **Registro de Testes e Correções (Ciclo IDEIA → PROTÓTIPO → TESTE → CORREÇÃO → RESULTADO):**

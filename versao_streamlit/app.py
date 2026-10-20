@@ -99,144 +99,227 @@ st.markdown(
 )
 
 # ==============================================================================
-# 1. BASE DE DADOS DOS POSTS (ESTRUTURA DO FEED INTERATIVO)
+# 1. BASE DE DADOS DOS POSTS (CENÁRIOS OFICIAIS - LEONARDO VINICIUS / INTEGRANTE A)
 # ==============================================================================
 POSTS_DO_FEED = [
     {
         "id": 1,
-        "autor": "Robux & Skins Grátis Oficial",
-        "arroba": "@premios_games_br • Patrocinado",
-        "avatar": "🎮",
-        "tipo": "Anúncio no Feed",
+        "autor": "Comunidade Secreta",
+        "arroba": "@comunidade_secreta • Agora mesmo",
+        "avatar": "🕵️",
+        "tipo": "Convite de Servidor",
         "texto": (
-            "🔥 ÚLTIMAS VAGAS! Liberamos 10.000 moedas grátis para os primeiros 50 "
-            "jogadores que preencherem o formulário com login, senha do jogo e CPF "
-            "dos pais! Corre antes que acabe!"
+            "Venha assistir à nossa transmissão ao vivo (Go Live) em servidor fechado "
+            "com desafios extremos e secretos!"
         ),
-        "midia_titulo": "🎁 RESGATAR MOEDAS GRÁTIS AGORA",
-        "midia_url": "http://robux-gratis-premio-urgente.xyz/login",
-        "curtidas": "❤️ 4.512 curtidas",
-        "comentarios": "💬 892 comentários",
+        "midia_titulo": "📡 Link para transmissão ao vivo suspeita",
+        "midia_url": "Servidor fechado • Sem moderação",
+        "curtidas": "❤️ 84 curtidas",
+        "comentarios": "💬 39 comentários",
         "gabarito": "PERIGO",
-        "categoria": "Golpes Digitais e Phishing",
+        "categoria": "Suspensão e Conteúdo Nocivo (Caso Discord)",
         "explicacao": (
-            "Golpistas usam promessas de recompensas grátis em jogos e senso de "
-            "urgência para roubar senhas e dados bancários/CPF dos responsáveis (Phishing)."
+            "Transmissões ao vivo sem moderação em servidores fechados podem facilitar o "
+            "contato com conteúdos de violência ou automutilação."
         ),
-        "pilar_eca": "ECA Digital: Proteção contra exploração comercial, fraudes e coleta ilegal de dados de menores.",
+        "pilar_eca": "ECA Digital: Segurança por Padrão e Moderação de Conteúdo.",
     },
     {
         "id": 2,
-        "autor": "Grêmio Estudantil Escola Estadual",
-        "arroba": "@gremio_escola_oficial • há 2 h",
-        "avatar": "🏫",
-        "tipo": "Post Institucional",
+        "autor": "Quiz Divertido BR",
+        "arroba": "@quiz_divertido_br • Patrocinado",
+        "avatar": "🎯",
+        "tipo": "Quiz Interativo",
         "texto": (
-            "Pessoal! Nesta sexta-feira acontecerá a nossa Mostra de Robótica e Ciências "
-            "no pátio principal, das 9h às 11h30. Tragam seus cadernos de anotação. "
-            "Não é necessário inscrição prévia!"
+            "Descubra qual personagem de anime você é! Basta preencher seu nome completo, "
+            "escola onde estuda e idade para ver o resultado."
         ),
-        "midia_titulo": "🤖 Mostra de Robótica e Ciências - Mural Oficial",
-        "midia_url": "Comunicado interno escolar (sem coleta de dados)",
-        "curtidas": "❤️ 189 curtidas",
-        "comentarios": "💬 24 comentários",
-        "gabarito": "SEGURO",
-        "categoria": "Uso Saudável e Informativo",
+        "midia_titulo": "📝 Formulário de Quiz de Personalidade",
+        "midia_url": "Coleta de nome completo, escola e idade",
+        "curtidas": "❤️ 2.310 curtidas",
+        "comentarios": "💬 614 comentários",
+        "gabarito": "PERIGO",
+        "categoria": "Coleta Ilegal de Dados e Publicidade",
         "explicacao": (
-            "Esta é uma publicação informativa de uma fonte escolar conhecida, que não "
-            "pede dados pessoais, senhas, fotos íntimas nem direciona para links suspeitos."
+            "Testes online muitas vezes são usados para coletar dados excessivos e criar "
+            "perfilamento comportamental de crianças e adolescentes."
         ),
-        "pilar_eca": "ECA Digital: Direito ao acesso à informação, educação e participação comunitária segura.",
+        "pilar_eca": "ECA Digital: Proteção contra a publicidade direcionada e Proteção de Dados.",
     },
     {
         "id": 3,
-        "autor": "Lucas_Fotografo_Teens",
-        "arroba": "@lucas_casting_oficial • Mensagem Direta (DM)",
-        "avatar": "📸",
-        "tipo": "Pedido no Direct (DM)",
+        "autor": "SaferNet Brasil Oficial",
+        "arroba": "@safernet_oficial • Canal Verificado ✓",
+        "avatar": "🛡️",
+        "tipo": "Informação Segura",
         "texto": (
-            "Oi! Vi seu perfil e achei que você leva muito jeito para modelo! Trabalho com "
-            "uma agência secreta. Me manda seu WhatsApp, o endereço da sua casa e algumas "
-            "fotos suas no quarto para eu avaliar? Não conta pros seus pais ainda pra fazer surpresa!"
+            "Você sabia que navegar com segurança é navegar com liberdades? "
+            "Conheça nossos canais de denúncia anônima."
         ),
-        "midia_titulo": "🔒 Solicitação de Mensagem Privada (Desconhecido)",
-        "midia_url": "Perfil criado há 2 dias • 0 publicações",
-        "curtidas": "⚠️ Conta não verificada",
-        "comentarios": "🔒 Mensagem privada",
-        "gabarito": "PERIGO",
-        "categoria": "Contato com Desconhecidos / Aliciamento",
+        "midia_titulo": "🌐 www.safernet.org.br/denuncie",
+        "midia_url": "Canal oficial e gratuito de apoio e denúncia",
+        "curtidas": "❤️ 1.540 curtidas",
+        "comentarios": "💬 98 comentários",
+        "gabarito": "SEGURO",
+        "categoria": "Informação Segura",
         "explicacao": (
-            "Alerta máximo! Perfis desconhecidos que elogiam excessivamente, pedem endereço/fotos "
-            "e pedem segredo dos pais são um forte sinal de aliciamento (grooming)."
+            "Instituições da sociedade civil, como a SaferNet, oferecem canais seguros e "
+            "gratuitos para reportar violências e conteúdos inadequados."
         ),
-        "pilar_eca": "ECA Digital: Proteção integral da dignidade, integridade física/psíquica e prevenção ao aliciamento online.",
+        "pilar_eca": "ECA Digital: Cidadania Digital.",
     },
     {
         "id": 4,
-        "autor": "Mariana_14anos",
-        "arroba": "@mari_vlog_diario • Agora mesmo",
-        "avatar": "🤳",
-        "tipo": "Stories Público",
+        "autor": "Influencer Milionário",
+        "arroba": "@influencer_milionario • Patrocinado",
+        "avatar": "🐯",
+        "tipo": "Anúncio no Feed",
         "texto": (
-            "Meus pais viajaram hoje e vou ficar sozinha em casa até domingo!! 🎉 "
-            "Moro aqui na Rua das Palmeiras, nº 412, portão azul. Meu crachá da escola "
-            "com meu RG saiu na foto mas nem ligo haha!"
+            "Quer ganhar dinheiro fácil para comprar aquele celular novo? "
+            "Jogue no tigre agora, é rápido e qualquer um ganha!"
         ),
-        "midia_titulo": "📍 Localização em Tempo Real Ativada",
-        "midia_url": "Rua das Palmeiras, 412 • Público para todos",
-        "curtidas": "❤️ 63 curtidas",
-        "comentarios": "💬 19 comentários",
+        "midia_titulo": "🎰 www.jogodotigrefacil.com (Banner chamativo de roleta)",
+        "midia_url": "Apostas online • Promessa de ganho fácil",
+        "curtidas": "❤️ 5.120 curtidas",
+        "comentarios": "💬 1.042 comentários",
         "gabarito": "PERIGO",
-        "categoria": "Exposição de Informações Pessoais",
+        "categoria": "Jogos de Apostas e Publicidade Ilegal",
         "explicacao": (
-            "Publicar endereço residencial, documentos (RG/crachá) e avisar que está sozinho(a) "
-            "em casa em perfil aberto expõe o adolescente a riscos físicos e roubo de identidade."
+            "É expressamente proibida a comunicação mercadológica de jogos de apostas direcionada "
+            "a crianças e adolescentes. As marcas não podem usar imagens de menores ou incentivá-los à prática de apostas."
         ),
-        "pilar_eca": "ECA Digital: Direito à privacidade, proteção de dados pessoais e preservação da imagem.",
+        "pilar_eca": "ECA Digital: Jogo Responsável e Proteção contra Publicidade Direcionada.",
     },
     {
         "id": 5,
-        "autor": "Fofocas_7Ano_Anonimo",
-        "arroba": "@exposed_da_escola • há 40 min",
-        "avatar": "😈",
-        "tipo": "Post no Feed",
+        "autor": "Vlog da Bia",
+        "arroba": "@vlog_da_bia • há 10 min",
+        "avatar": "🤳",
+        "tipo": "Stories Público",
         "texto": (
-            "Olhem o meme que fizemos zoando a aparência do aluno novo da sala! 😂 "
-            "Curtam e compartilhem no grupo geral pra todo mundo rir dele amanhã no recreio! #ZoeiraSemLimites"
+            "Mostrando meu uniforme novo! Todo dia pego o ônibus das 06:30h sozinha na praça "
+            "central para ir à Escola Estadual Mário de Andrade. Venham me dar oi!"
         ),
-        "midia_titulo": "🚫 Montagem ofensiva sem consentimento",
-        "midia_url": "Denunciar publicação por assédio",
-        "curtidas": "❤️ 31 curtidas",
-        "comentarios": "💬 45 comentários",
+        "midia_titulo": "📸 Foto com uniforme escolar na rua",
+        "midia_url": "Localização e rotina diária expostas publicamente",
+        "curtidas": "❤️ 112 curtidas",
+        "comentarios": "💬 27 comentários",
         "gabarito": "PERIGO",
-        "categoria": "Cyberbullying e Violência Digital",
+        "categoria": "Superexposição e Vigilantismo",
         "explicacao": (
-            "Criar, curtir ou compartilhar montagens para humilhar colegas na internet é Cyberbullying. "
-            "Engajar nesse conteúdo amplia a violência psicológica contra a vítima."
+            "A superexposição da rotina, horários exatos e identificação do local de estudo "
+            "facilita o rastreio na vida real, expondo o jovem a riscos físicos e vigilantismo."
         ),
-        "pilar_eca": "ECA Digital: Combate à intimidação sistemática (cyberbullying) e dever de respeito aos direitos humanos.",
+        "pilar_eca": "ECA Digital: Privacidade e Segurança Física.",
     },
     {
         "id": 6,
-        "autor": "Canal SaferNet / Proteção Digital",
-        "arroba": "@safernet_dicas • há 3 h",
-        "avatar": "🛡️",
+        "autor": "Verdade Oculta",
+        "arroba": "@verdade_oculta_00 • há 25 min",
+        "avatar": "🚫",
+        "tipo": "Post Denunciado",
+        "texto": (
+            "Eles não merecem estar no mesmo espaço que nós. Compartilhem essa imagem "
+            "para mostrar quem é superior de verdade."
+        ),
+        "midia_titulo": "⚠️ Imagem contendo símbolos de intolerância",
+        "midia_url": "Conteúdo discriminatório e discurso de ódio",
+        "curtidas": "❤️ 12 curtidas",
+        "comentarios": "💬 83 comentários",
+        "gabarito": "PERIGO",
+        "categoria": "Discurso de Ódio / Racismo",
+        "explicacao": (
+            "Propagar racismo, neo-nazismo ou homofobia na internet é crime. O ambiente digital "
+            "não é terra sem lei e o discurso de ódio não está protegido pela liberdade de expressão."
+        ),
+        "pilar_eca": "ECA Digital: Proteção contra Violências e Respeito à Dignidade.",
+    },
+    {
+        "id": 7,
+        "autor": "Cetic.br Oficial",
+        "arroba": "@cetic_br_oficial • Canal Verificado ✓",
+        "avatar": "📊",
+        "tipo": "Divulgação Científica",
+        "texto": (
+            "Saiu a nova pesquisa TIC Kids Online! Descubra como entender as oportunidades "
+            "e os riscos relacionados à sua participação online."
+        ),
+        "midia_titulo": "📘 Link para o relatório TIC Kids Online Brasil",
+        "midia_url": "cetic.br • Pesquisa oficial sobre uso da internet",
+        "curtidas": "❤️ 875 curtidas",
+        "comentarios": "💬 41 comentários",
+        "gabarito": "SEGURO",
+        "categoria": "Informação Científica Segura",
+        "explicacao": (
+            "Consumir pesquisas oficiais como a da UNESCO/Cetic.br ajuda os adolescentes a "
+            "compreenderem a internet e incentiva o diálogo com pais ou responsáveis sobre a mediação digital."
+        ),
+        "pilar_eca": "ECA Digital: Cidadania Digital e Mediação Parental.",
+    },
+    {
+        "id": 8,
+        "autor": "Fofocas da Escola",
+        "arroba": "@fofocas_da_escola • há 15 min",
+        "avatar": "😈",
+        "tipo": "Post Anônimo",
+        "texto": (
+            "Vazou a foto do fulano no vestiário! Cliquem no link antes que derrubem a página hahaha"
+        ),
+        "midia_titulo": "🔗 Link malicioso disfarçado de fofoca",
+        "midia_url": "Violação de intimidade + Link suspeito",
+        "curtidas": "❤️ 49 curtidas",
+        "comentarios": "💬 116 comentários",
+        "gabarito": "PERIGO",
+        "categoria": "Cyberbullying / Exposição de Imagens Íntimas",
+        "explicacao": (
+            "O compartilhamento não consensual de imagens íntimas e o cyberbullying são graves "
+            "violações. Além de humilhar a vítima, links sensacionalistas são iscas comuns para fraudes e vírus."
+        ),
+        "pilar_eca": "ECA Digital: Respeito à Privacidade e Combate ao Cyberbullying.",
+    },
+    {
+        "id": 9,
+        "autor": "Atendimento Banco Seguro",
+        "arroba": "@atendimento_banco_seguro • Mensagem Direta (DM)",
+        "avatar": "🏦",
+        "tipo": "Alerta Falso (Phishing)",
+        "texto": (
+            "Notamos uma transação suspeita na sua conta. Para evitar o bloqueio, "
+            "faça um PIX teste para a chave abaixo ou acesse o link de segurança."
+        ),
+        "midia_titulo": "💸 Link falso de central de atendimento bancário",
+        "midia_url": "Solicitação fraudulenta de PIX / Senha",
+        "curtidas": "⚠️ Conta não oficial",
+        "comentarios": "🔒 Mensagem privada",
+        "gabarito": "PERIGO",
+        "categoria": "Fraudes Bancárias Digitais (Golpes)",
+        "explicacao": (
+            "Instituições oficiais nunca pedem transferências ou senhas por redes sociais "
+            "para cancelar fraudes. Esta é uma das armadilhas mais comuns de fraudes bancárias digitais."
+        ),
+        "pilar_eca": "ECA Digital: Segurança Digital e Combate a Fraudes.",
+    },
+    {
+        "id": 10,
+        "autor": "Ministério da Justiça",
+        "arroba": "@ministerio_justica • Órgão Oficial ✓",
+        "avatar": "⚖️",
         "tipo": "Campanha Educativa",
         "texto": (
-            "💡 Dica rápida de segurança: Ative a verificação em duas etapas (2FA) nas suas redes "
-            "sociais e deixe seu perfil privado para que apenas amigos que você realmente conhece vejam seus stories!"
+            "Antes de baixar um jogo novo, sempre verifique o selo de Classificação Indicativa. "
+            "Ele garante que o conteúdo é adequado para a sua idade!"
         ),
-        "midia_titulo": "✅ Guia de Privacidade para Adolescentes",
-        "midia_url": "Configurações > Privacidade e Segurança",
-        "curtidas": "❤️ 940 curtidas",
-        "comentarios": "💬 52 comentários",
+        "midia_titulo": '🟢 Selo verde de Classificação "L" (Livre)',
+        "midia_url": "gov.br/mj • Classificação Indicativa Oficial",
+        "curtidas": "❤️ 2.190 curtidas",
+        "comentarios": "💬 134 comentários",
         "gabarito": "SEGURO",
-        "categoria": "Educação e Cidadania Digital",
+        "categoria": "Uso Consciente e Defesa do Consumidor",
         "explicacao": (
-            "Conteúdos educativos que orientam a ativar a autenticação em duas etapas e manter o "
-            "perfil privado ajudam a proteger sua conta contra invasões."
+            "A Classificação Indicativa é um serviço oficial do Ministério da Justiça que "
+            "protege crianças e adolescentes do contato precoce com conteúdos impróprios (violência, drogas, etc)."
         ),
-        "pilar_eca": "ECA Digital: Promoção da educação digital e do uso seguro e autônomo da tecnologia.",
+        "pilar_eca": "ECA Digital: Classificação Indicativa e Educação Digital.",
     },
 ]
 
