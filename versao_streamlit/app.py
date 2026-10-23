@@ -4,6 +4,9 @@
 PROJETO PRÁTICO - SEMINÁRIO ECA DIGITAL
 Aplicação: Feed Seguro - Simulador de Riscos Digitais
 Responsável (Pilar de Programação): Talita Mendonça Marques (Integrante B)
+Conteúdo (Pilar Teórico): Leonardo Vinicius da Costa Gomes (Integrante A)
+Design e Recursos Visuais: Adriano Hazime Rodrigues (Integrante C)
+Coordenação: Denner dos Santos Avalos
 Tecnologia: Python + Streamlit
 ===============================================================================
 Como executar no terminal:
@@ -11,7 +14,23 @@ Como executar no terminal:
     streamlit run app.py
 """
 
+import base64
+from pathlib import Path
 import streamlit as st
+
+# Diretório de assets visuais (fotos de perfil e banners criados pelo Adriano Hazime)
+ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
+
+
+@st.cache_data
+def carregar_imagem_base64(nome_arquivo: str) -> str:
+    """Converte uma imagem da pasta assets/ em base64 para embutir no card HTML."""
+    caminho = ASSETS_DIR / nome_arquivo
+    if caminho.exists():
+        dados = caminho.read_bytes()
+        return base64.b64encode(dados).decode("utf-8")
+    return ""
+
 
 # Configuração da página com foco em visualização Mobile (centralizada)
 st.set_page_config(
@@ -49,6 +68,17 @@ st.markdown(
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
+        border: 2px solid #c7d2fe;
+        flex-shrink: 0;
+    }
+    .avatar-img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #c7d2fe;
+        flex-shrink: 0;
     }
     .post-author {
         font-weight: 800;
@@ -100,6 +130,7 @@ st.markdown(
 
 # ==============================================================================
 # 1. BASE DE DADOS DOS POSTS (6 CENÁRIOS INICIAIS TALITA + 10 CENÁRIOS LEONARDO = 16)
+#    Integrado com as fotos de perfil e banners educativos do Adriano Hazime
 # ==============================================================================
 POSTS_DO_FEED = [
     # --- CENÁRIOS INICIAIS (TALITA) ---
@@ -108,6 +139,8 @@ POSTS_DO_FEED = [
         "autor": "Robux & Skins Grátis Oficial",
         "arroba": "@premios_games_br • Patrocinado",
         "avatar": "🎮",
+        "avatar_img": "user_profile_boy_game.jpeg",
+        "banner_feedback": "banner vermelho cuidado com os golpes..jpeg",
         "tipo": "Anúncio no Feed",
         "texto": (
             "🔥 ÚLTIMAS VAGAS! Liberamos 10.000 moedas grátis para os primeiros 50 "
@@ -131,6 +164,8 @@ POSTS_DO_FEED = [
         "autor": "Grêmio Estudantil Escola Estadual",
         "arroba": "@gremio_escola_oficial • há 2 h",
         "avatar": "🏫",
+        "avatar_img": "user_profile_woman.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Post Institucional",
         "texto": (
             "Pessoal! Nesta sexta-feira acontecerá a nossa Mostra de Robótica e Ciências "
@@ -154,6 +189,8 @@ POSTS_DO_FEED = [
         "autor": "Lucas_Fotografo_Teens",
         "arroba": "@lucas_casting_oficial • Mensagem Direta (DM)",
         "avatar": "📸",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner amarelo atencao a perfis falsos.jpeg",
         "tipo": "Pedido no Direct (DM)",
         "texto": (
             "Oi! Vi seu perfil e achei que você leva muito jeito para modelo! Trabalho com "
@@ -177,6 +214,8 @@ POSTS_DO_FEED = [
         "autor": "Mariana_14anos",
         "arroba": "@mari_vlog_diario • Agora mesmo",
         "avatar": "🤳",
+        "avatar_img": "user_profile_woman_II.jpeg",
+        "banner_feedback": "banner azul proteja seus dados.jpeg",
         "tipo": "Stories Público",
         "texto": (
             "Meus pais viajaram hoje e vou ficar sozinha em casa até domingo!! 🎉 "
@@ -200,6 +239,8 @@ POSTS_DO_FEED = [
         "autor": "Fofocas_7Ano_Anonimo",
         "arroba": "@exposed_da_escola • há 40 min",
         "avatar": "😈",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Post no Feed",
         "texto": (
             "Olhem o meme que fizemos zoando a aparência do aluno novo da sala! 😂 "
@@ -222,6 +263,8 @@ POSTS_DO_FEED = [
         "autor": "Canal SaferNet / Proteção Digital",
         "arroba": "@safernet_dicas • há 3 h",
         "avatar": "🛡️",
+        "avatar_img": "user_profile_woman.jpeg",
+        "banner_feedback": "banner azul proteja seus dados.jpeg",
         "tipo": "Campanha Educativa",
         "texto": (
             "💡 Dica rápida de segurança: Ative a verificação em duas etapas (2FA) nas suas redes "
@@ -246,6 +289,8 @@ POSTS_DO_FEED = [
         "autor": "Comunidade Secreta",
         "arroba": "@comunidade_secreta • Agora mesmo",
         "avatar": "🕵️",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner amarelo atencao a perfis falsos.jpeg",
         "tipo": "Convite de Servidor",
         "texto": (
             "Venha assistir à nossa transmissão ao vivo (Go Live) em servidor fechado "
@@ -268,6 +313,8 @@ POSTS_DO_FEED = [
         "autor": "Quiz Divertido BR",
         "arroba": "@quiz_divertido_br • Patrocinado",
         "avatar": "🎯",
+        "avatar_img": "user_profile_boy_game.jpeg",
+        "banner_feedback": "banner azul proteja seus dados.jpeg",
         "tipo": "Quiz Interativo",
         "texto": (
             "Descubra qual personagem de anime você é! Basta preencher seu nome completo, "
@@ -290,6 +337,8 @@ POSTS_DO_FEED = [
         "autor": "SaferNet Brasil Oficial",
         "arroba": "@safernet_oficial • Canal Verificado ✓",
         "avatar": "🛡️",
+        "avatar_img": "user_profile_woman.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Informação Segura",
         "texto": (
             "Você sabia que navegar com segurança é navegar com liberdades? "
@@ -312,6 +361,8 @@ POSTS_DO_FEED = [
         "autor": "Influencer Milionário",
         "arroba": "@influencer_milionario • Patrocinado",
         "avatar": "🐯",
+        "avatar_img": "user_profile_boy_game.jpeg",
+        "banner_feedback": "banner vermelho cuidado com os golpes..jpeg",
         "tipo": "Anúncio no Feed",
         "texto": (
             "Quer ganhar dinheiro fácil para comprar aquele celular novo? "
@@ -334,6 +385,8 @@ POSTS_DO_FEED = [
         "autor": "Vlog da Bia",
         "arroba": "@vlog_da_bia • há 10 min",
         "avatar": "🤳",
+        "avatar_img": "user_profile_woman_II.jpeg",
+        "banner_feedback": "banner azul proteja seus dados.jpeg",
         "tipo": "Stories Público",
         "texto": (
             "Mostrando meu uniforme novo! Todo dia pego o ônibus das 06:30h sozinha na praça "
@@ -356,6 +409,8 @@ POSTS_DO_FEED = [
         "autor": "Verdade Oculta",
         "arroba": "@verdade_oculta_00 • há 25 min",
         "avatar": "🚫",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner amarelo atencao a perfis falsos.jpeg",
         "tipo": "Post Denunciado",
         "texto": (
             "Eles não merecem estar no mesmo espaço que nós. Compartilhem essa imagem "
@@ -378,6 +433,8 @@ POSTS_DO_FEED = [
         "autor": "Cetic.br Oficial",
         "arroba": "@cetic_br_oficial • Canal Verificado ✓",
         "avatar": "📊",
+        "avatar_img": "user_profile_woman.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Divulgação Científica",
         "texto": (
             "Saiu a nova pesquisa TIC Kids Online! Descubra como entender as oportunidades "
@@ -400,6 +457,8 @@ POSTS_DO_FEED = [
         "autor": "Fofocas da Escola",
         "arroba": "@fofocas_da_escola • há 15 min",
         "avatar": "😈",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Post Anônimo",
         "texto": (
             "Vazou a foto do fulano no vestiário! Cliquem no link antes que derrubem a página hahaha"
@@ -421,6 +480,8 @@ POSTS_DO_FEED = [
         "autor": "Atendimento Banco Seguro",
         "arroba": "@atendimento_banco_seguro • Mensagem Direta (DM)",
         "avatar": "🏦",
+        "avatar_img": "user_profile_artdeco_game.jpeg",
+        "banner_feedback": "banner vermelho cuidado com os golpes..jpeg",
         "tipo": "Alerta Falso (Phishing)",
         "texto": (
             "Notamos uma transação suspeita na sua conta. Para evitar o bloqueio, "
@@ -443,6 +504,8 @@ POSTS_DO_FEED = [
         "autor": "Ministério da Justiça",
         "arroba": "@ministerio_justica • Órgão Oficial ✓",
         "avatar": "⚖️",
+        "avatar_img": "user_profile_woman_II.jpeg",
+        "banner_feedback": "banner verde pense antes de agir.jpeg",
         "tipo": "Campanha Educativa",
         "texto": (
             "Antes de baixar um jogo novo, sempre verifique o selo de Classificação Indicativa. "
@@ -545,12 +608,30 @@ if not st.session_state.iniciado:
     st.markdown(
         """
         **O que você vai treinar neste simulador:**
-        - Identificação de **golpes digitais e phishing** (falsos prêmios/moedas);
-        - Prevenção contra **contato mal-intencionado de desconhecidos**;
-        - Cuidado com a **exposição excessiva de dados pessoais e localização**;
-        - Combate ao **cyberbullying** e valorização da cidadania digital.
+        - Identificação de **golpes digitais, apostas e phishing**;
+        - Prevenção contra **perfis falsos e aliciamento**;
+        - Cuidado com a **exposição excessiva de dados pessoais e rotina escolar**;
+        - Combate ao **cyberbullying, discurso de ódio** e valorização da cidadania digital.
         """
     )
+
+    # Exibe os 4 banners educativos do Adriano Hazime na tela inicial
+    c1, c2 = st.columns(2)
+    with c1:
+        b1 = ASSETS_DIR / "banner vermelho cuidado com os golpes..jpeg"
+        b2 = ASSETS_DIR / "banner azul proteja seus dados.jpeg"
+        if b1.exists():
+            st.image(str(b1), use_container_width=True)
+        if b2.exists():
+            st.image(str(b2), use_container_width=True)
+    with c2:
+        b3 = ASSETS_DIR / "banner amarelo atencao a perfis falsos.jpeg"
+        b4 = ASSETS_DIR / "banner verde pense antes de agir.jpeg"
+        if b3.exists():
+            st.image(str(b3), use_container_width=True)
+        if b4.exists():
+            st.image(str(b4), use_container_width=True)
+
     if st.button("🚀 Iniciar Simulação Agora", use_container_width=True, type="primary"):
         reiniciar_simulacao()
         st.rerun()
@@ -564,12 +645,19 @@ elif st.session_state.indice_atual < len(POSTS_DO_FEED):
     # Barra de progresso
     st.progress((indice) / total, text=f"Analisando situação {indice + 1} de {total}")
 
+    # Obtém a foto de perfil ilustrada do Adriano em base64 (ou usa emoji como fallback)
+    b64_avatar = carregar_imagem_base64(post.get("avatar_img", ""))
+    if b64_avatar:
+        avatar_html = f'<img src="data:image/jpeg;base64,{b64_avatar}" class="avatar-img" alt="Avatar" />'
+    else:
+        avatar_html = f'<div class="avatar-circle">{post["avatar"]}</div>'
+
     # Renderização do Card do Post (Estilo Rede Social)
     st.markdown(
         f"""
         <div class="post-card">
             <div class="post-header">
-                <div class="avatar-circle">{post["avatar"]}</div>
+                {avatar_html}
                 <div>
                     <p class="post-author">{post["autor"]}</p>
                     <p class="post-handle">{post["arroba"]}</p>
@@ -611,6 +699,11 @@ elif st.session_state.indice_atual < len(POSTS_DO_FEED):
             st.error(
                 f"🚨 **Atenção!** Você marcou **{ultimo['escolha']}**, mas esta situação é **{post['gabarito']}**."
             )
+
+        # Exibe o Banner Educativo correspondente criado pelo Adriano Hazime
+        caminho_banner = ASSETS_DIR / post.get("banner_feedback", "")
+        if caminho_banner.exists():
+            st.image(str(caminho_banner), use_container_width=True)
 
         st.markdown(f"**Explicação:** {post['explicacao']}")
         st.caption(f"📌 **{post['pilar_eca']}**")
@@ -676,4 +769,3 @@ else:
     if st.button("🔄 Jogar Novamente", use_container_width=True, type="primary"):
         reiniciar_simulacao()
         st.rerun()
-

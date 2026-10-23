@@ -125,7 +125,7 @@ Com base na pontuação, o algoritmo classifica o perfil do estudante em três f
     9. *Fraudes Bancárias Digitais (Golpes)* (`@atendimento_banco_seguro` — **PERIGO**);
     10. *Uso Consciente e Defesa do Consumidor* (`@ministerio_justica` — **SEGURO**).
 * **Integração com o Design (Adriano):**
-  * *Data:* ___/___/2026 — *O que foi ajustado na interface:* (ex.: "Foram inseridas novas cores/ícones nos cards do feed").
+  * *Data:* **22/10/2026** — *O que foi ajustado na interface:* Foram integrados na pasta `assets/` e no código de ambas as versões (`versao_web/` e `versao_streamlit/`) os **4 avatares de perfil ilustrados** (`user_profile_*.jpeg`) nos cards das postagens e os **4 banners educativos de alerta** (`banner vermelho cuidado com os golpes..jpeg`, `banner amarelo atencao a perfis falsos.jpeg`, `banner azul proteja seus dados.jpeg` e `banner verde pense antes de agir.jpeg`) exibidos na tela inicial e no feedback imediato de cada questão.
 * **Registro de Testes e Correções (Ciclo IDEIA → PROTÓTIPO → TESTE → CORREÇÃO → RESULTADO):**
   1. *A aplicação web funciona sem travar?* Sim, testada via deploy em nuvem no celular e computador.
   2. *O usuário consegue entender como classificar os posts?* (Anotar feedback dos testes com colegas/adolescentes).

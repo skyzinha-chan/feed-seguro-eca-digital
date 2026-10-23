@@ -12,6 +12,7 @@
  */
 
 // 1. BASE DE DADOS DOS POSTS (6 cenários iniciais da Talita + 10 cenários elaborados pelo Leonardo = 16 situações)
+// Integrado com os avatares e banners visuais produzidos pelo Adriano Hazime (Integrante C)
 const postsDoFeed = [
     // --- CENÁRIOS INICIAIS (TALITA) ---
     {
@@ -19,6 +20,8 @@ const postsDoFeed = [
         autor: "Robux & Skins Grátis Oficial",
         arroba: "@premios_games_br • Patrocinado",
         avatar: "🎮",
+        avatarImg: "../assets/user_profile_boy_game.jpeg",
+        bannerFeedback: "../assets/banner vermelho cuidado com os golpes..jpeg",
         tipo: "Anúncio no Feed",
         texto: "🔥 ÚLTIMAS VAGAS! Liberamos 10.000 moedas grátis para os primeiros 50 jogadores que preencherem o formulário com login, senha do jogo e CPF dos pais! Corre antes que acabe!",
         midiaIcone: "🎁",
@@ -36,6 +39,8 @@ const postsDoFeed = [
         autor: "Grêmio Estudantil Escola Estadual",
         arroba: "@gremio_escola_oficial • há 2 h",
         avatar: "🏫",
+        avatarImg: "../assets/user_profile_woman.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Post Institucional",
         texto: "Pessoal! Nesta sexta-feira acontecerá a nossa Mostra de Robótica e Ciências no pátio principal, das 9h às 11h30. Tragam seus cadernos de anotação. Não é necessário inscrição prévia!",
         midiaIcone: "🤖",
@@ -53,6 +58,8 @@ const postsDoFeed = [
         autor: "Lucas_Fotografo_Teens",
         arroba: "@lucas_casting_oficial • Mensagem Direta (DM)",
         avatar: "📸",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner amarelo atencao a perfis falsos.jpeg",
         tipo: "Pedido no Direct (DM)",
         texto: "Oi! Vi seu perfil e achei que você leva muito jeito para modelo! Trabalho com uma agência secreta. Me manda seu WhatsApp, o endereço da sua casa e algumas fotos suas no quarto para eu avaliar? Não conta pros seus pais ainda pra fazer surpresa!",
         midiaIcone: "🔒",
@@ -70,6 +77,8 @@ const postsDoFeed = [
         autor: "Mariana_14anos",
         arroba: "@mari_vlog_diario • Agora mesmo",
         avatar: "🤳",
+        avatarImg: "../assets/user_profile_woman_II.jpeg",
+        bannerFeedback: "../assets/banner azul proteja seus dados.jpeg",
         tipo: "Stories Público",
         texto: "Meus pais viajaram hoje e vou ficar sozinha em casa até domingo!! 🎉 Moro aqui na Rua das Palmeiras, nº 412, portão azul. Meu crachá da escola com meu RG saiu na foto mas nem ligo haha!",
         midiaIcone: "📍",
@@ -87,6 +96,8 @@ const postsDoFeed = [
         autor: "Fofocas_7Ano_Anonimo",
         arroba: "@exposed_da_escola • há 40 min",
         avatar: "😈",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Post no Feed",
         texto: "Olhem o meme que fizemos zoando a aparência do aluno novo da sala! 😂 Curtam e compartilhem no grupo geral pra todo mundo rir dele amanhã no recreio! #ZoeiraSemLimites",
         midiaIcone: "🚫",
@@ -104,6 +115,8 @@ const postsDoFeed = [
         autor: "Canal SaferNet / Proteção Digital",
         arroba: "@safernet_dicas • há 3 h",
         avatar: "🛡️",
+        avatarImg: "../assets/user_profile_woman.jpeg",
+        bannerFeedback: "../assets/banner azul proteja seus dados.jpeg",
         tipo: "Campanha Educativa",
         texto: "💡 Dica rápida de segurança: Ative a verificação em duas etapas (2FA) nas suas redes sociais e deixe seu perfil privado para que apenas amigos que você realmente conhece vejam seus stories!",
         midiaIcone: "✅",
@@ -123,6 +136,8 @@ const postsDoFeed = [
         autor: "Comunidade Secreta",
         arroba: "@comunidade_secreta • Agora mesmo",
         avatar: "🕵️",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner amarelo atencao a perfis falsos.jpeg",
         tipo: "Convite de Servidor",
         texto: "Venha assistir à nossa transmissão ao vivo (Go Live) em servidor fechado com desafios extremos e secretos!",
         midiaIcone: "📡",
@@ -140,6 +155,8 @@ const postsDoFeed = [
         autor: "Quiz Divertido BR",
         arroba: "@quiz_divertido_br • Patrocinado",
         avatar: "🎯",
+        avatarImg: "../assets/user_profile_boy_game.jpeg",
+        bannerFeedback: "../assets/banner azul proteja seus dados.jpeg",
         tipo: "Quiz Interativo",
         texto: "Descubra qual personagem de anime você é! Basta preencher seu nome completo, escola onde estuda e idade para ver o resultado.",
         midiaIcone: "📝",
@@ -157,6 +174,8 @@ const postsDoFeed = [
         autor: "SaferNet Brasil Oficial",
         arroba: "@safernet_oficial • Canal Verificado ✓",
         avatar: "🛡️",
+        avatarImg: "../assets/user_profile_woman.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Informação Segura",
         texto: "Você sabia que navegar com segurança é navegar com liberdades? Conheça nossos canais de denúncia anônima.",
         midiaIcone: "🌐",
@@ -174,6 +193,8 @@ const postsDoFeed = [
         autor: "Influencer Milionário",
         arroba: "@influencer_milionario • Patrocinado",
         avatar: "🐯",
+        avatarImg: "../assets/user_profile_boy_game.jpeg",
+        bannerFeedback: "../assets/banner vermelho cuidado com os golpes..jpeg",
         tipo: "Anúncio no Feed",
         texto: "Quer ganhar dinheiro fácil para comprar aquele celular novo? Jogue no tigre agora, é rápido e qualquer um ganha!",
         midiaIcone: "🎰",
@@ -191,6 +212,8 @@ const postsDoFeed = [
         autor: "Vlog da Bia",
         arroba: "@vlog_da_bia • há 10 min",
         avatar: "🤳",
+        avatarImg: "../assets/user_profile_woman_II.jpeg",
+        bannerFeedback: "../assets/banner azul proteja seus dados.jpeg",
         tipo: "Stories Público",
         texto: "Mostrando meu uniforme novo! Todo dia pego o ônibus das 06:30h sozinha na praça central para ir à Escola Estadual Mário de Andrade. Venham me dar oi!",
         midiaIcone: "📸",
@@ -208,6 +231,8 @@ const postsDoFeed = [
         autor: "Verdade Oculta",
         arroba: "@verdade_oculta_00 • há 25 min",
         avatar: "🚫",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner amarelo atencao a perfis falsos.jpeg",
         tipo: "Post Denunciado",
         texto: "Eles não merecem estar no mesmo espaço que nós. Compartilhem essa imagem para mostrar quem é superior de verdade.",
         midiaIcone: "⚠️",
@@ -225,6 +250,8 @@ const postsDoFeed = [
         autor: "Cetic.br Oficial",
         arroba: "@cetic_br_oficial • Canal Verificado ✓",
         avatar: "📊",
+        avatarImg: "../assets/user_profile_woman.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Divulgação Científica",
         texto: "Saiu a nova pesquisa TIC Kids Online! Descubra como entender as oportunidades e os riscos relacionados à sua participação online.",
         midiaIcone: "📘",
@@ -242,6 +269,8 @@ const postsDoFeed = [
         autor: "Fofocas da Escola",
         arroba: "@fofocas_da_escola • há 15 min",
         avatar: "😈",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Post Anônimo",
         texto: "Vazou a foto do fulano no vestiário! Cliquem no link antes que derrubem a página hahaha",
         midiaIcone: "🔗",
@@ -259,6 +288,8 @@ const postsDoFeed = [
         autor: "Atendimento Banco Seguro",
         arroba: "@atendimento_banco_seguro • Mensagem Direta (DM)",
         avatar: "🏦",
+        avatarImg: "../assets/user_profile_artdeco_game.jpeg",
+        bannerFeedback: "../assets/banner vermelho cuidado com os golpes..jpeg",
         tipo: "Alerta Falso (Phishing)",
         texto: "Notamos uma transação suspeita na sua conta. Para evitar o bloqueio, faça um PIX teste para a chave abaixo ou acesse o link de segurança.",
         midiaIcone: "💸",
@@ -276,6 +307,8 @@ const postsDoFeed = [
         autor: "Ministério da Justiça",
         arroba: "@ministerio_justica • Órgão Oficial ✓",
         avatar: "⚖️",
+        avatarImg: "../assets/user_profile_woman_II.jpeg",
+        bannerFeedback: "../assets/banner verde pense antes de agir.jpeg",
         tipo: "Campanha Educativa",
         texto: "Antes de baixar um jogo novo, sempre verifique o selo de Classificação Indicativa. Ele garante que o conteúdo é adequado para a sua idade!",
         midiaIcone: "🟢",
@@ -343,8 +376,13 @@ function carregarPostAtual() {
     const progressoPercentual = ((indiceAtual) / postsDoFeed.length) * 100;
     progressBar.style.width = `${progressoPercentual}%`;
 
-    // Preenche os dados do post no card
-    document.getElementById("post-avatar").textContent = post.avatar;
+    // Preenche os dados do post no card (usa foto de perfil do Adriano se disponível)
+    const avatarEl = document.getElementById("post-avatar");
+    if (post.avatarImg) {
+        avatarEl.innerHTML = `<img src="${post.avatarImg}" alt="${post.autor}" class="avatar-img" onerror="this.parentElement.textContent='${post.avatar}'">`;
+    } else {
+        avatarEl.textContent = post.avatar;
+    }
     document.getElementById("post-author").textContent = post.autor;
     document.getElementById("post-type-badge").textContent = post.tipo;
     document.getElementById("post-handle").textContent = post.arroba;
@@ -409,6 +447,14 @@ function avaliarPost(escolhaUsuario) {
 
     feedbackExplanation.textContent = post.explicacao;
     feedbackEca.textContent = `📌 ${post.pilarEca}`;
+
+    const feedbackBanner = document.getElementById("feedback-banner");
+    if (feedbackBanner && post.bannerFeedback) {
+        feedbackBanner.src = post.bannerFeedback;
+        feedbackBanner.style.display = "block";
+    } else if (feedbackBanner) {
+        feedbackBanner.style.display = "none";
+    }
 
     // Verifica se é o último post para mudar o texto do botão
     if (indiceAtual === postsDoFeed.length - 1) {

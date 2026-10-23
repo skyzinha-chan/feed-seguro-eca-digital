@@ -44,19 +44,19 @@ O **FEED SEGURO: Simulador de Riscos Digitais** é uma aplicação web educativa
 
 O projeto aborda um problema crítico enfrentado por crianças e adolescentes na contemporaneidade: a **dificuldade em identificar golpes digitais, perfis falsos, tentativas de aliciamento, cyberbullying e superexposição de dados pessoais nas redes sociais**.
 
-Alinhada aos princípios e direitos do **ECA Digital** (proteção integral, privacidade, segurança e educação digital), a ferramenta simula o feed de uma rede social no celular, desafiando o estudante a avaliar situações reais do cotidiano digital e gerando, ao final, um **Diagnóstico Educativo Personalizado**.
+Alinhada aos princípios e direitos do **ECA Digital** (proteção integral, privacidade, segurança e educação digital), a ferramenta simula o feed de uma rede social no celular, desafiando o estudante a avaliar **16 situações reais do cotidiano digital** e gerando, ao final, um **Diagnóstico Educativo Personalizado**.
 
 ---
 
 ## 🚀 Principais Funcionalidades
 
 ### 📱 Feed Interativo Mobile-First
-* **Simulação Realista de Rede Social**: Apresenta postagens patrocinadas, stories públicos, comunicados escolares e mensagens diretas (DM) com avatares, arrobas, links e contadores de engajamento.
-* **Barra de Progresso Dinâmica**: Acompanhamento visual em tempo real do avanço do estudante pelas situações-problema.
+* **Simulação Realista de Rede Social**: Apresenta postagens patrocinadas, stories públicos, comunicados escolares e mensagens diretas (DM) com fotos de perfil ilustradas, arrobas, links e contadores de engajamento.
+* **Barra de Progresso Dinâmica**: Acompanhamento visual em tempo real do avanço do estudante pelas 16 situações-problema.
 
 ### ⚖️ Sistema de Decisão (`✅ Seguro` vs `⚠️ Perigo`)
 * **Classificação Prática**: Em cada publicação do feed, o usuário deve analisar os sinais de alerta e decidir se a interação representa um ambiente **Seguro** ou um **Perigo**.
-* **Feedback Educativo Imediato**: Assim que o botão é acionado, o simulador informa se o aluno acertou ou errou, explicando a armadilha (ex.: *phishing*, *grooming*, vazamento de localização) e qual direito do **ECA Digital** está envolvido.
+* **Feedback Educativo Imediato com Banners Visuais**: Assim que o botão é acionado, o simulador informa se o aluno acertou ou errou, exibindo um **banner educativo contextual** (*Cuidado com golpes*, *Atenção a perfis falsos*, *Proteja seus dados* ou *Pense antes de clicar*), explicando a armadilha e qual direito do **ECA Digital** está envolvido.
 
 ### 📊 Algoritmo de Contabilização e Diagnóstico Educativo Final
 * **Cálculo Automatizado de Desempenho**: Contabiliza o total de acertos, erros e o percentual de aproveitamento global.
@@ -68,6 +68,27 @@ Alinhada aos princípios e direitos do **ECA Digital** (proteção integral, pri
 
 ### 🔄 Dupla Implementação (Web HTML/JS & Python/Streamlit)
 * O projeto conta com duas implementações completas da mesma lógica para validação comparativa e flexibilidade de uso em sala de aula.
+
+---
+
+## 🎨 Identidade Visual, Banners e Capturas de Tela
+
+### 🛡️ Banners Educativos do Simulador
+<p align="center">
+  <img src="./assets/banner%20vermelho%20cuidado%20com%20os%20golpes..jpeg" width="48%" alt="Banner Cuidado com Golpes" />
+  <img src="./assets/banner%20amarelo%20atencao%20a%20perfis%20falsos.jpeg" width="48%" alt="Banner Atenção a Perfis Falsos" />
+</p>
+<p align="center">
+  <img src="./assets/banner%20azul%20proteja%20seus%20dados.jpeg" width="48%" alt="Banner Proteja seus Dados" />
+  <img src="./assets/banner%20verde%20pense%20antes%20de%20agir.jpeg" width="48%" alt="Banner Pense antes de Clicar" />
+</p>
+
+### 📸 Telas do Protótipo em Funcionamento
+<p align="center">
+  <img src="./assets/pagina%20inicial.png" width="31%" alt="Tela Inicial" />
+  <img src="./assets/iniciando%20as%20questoes.png" width="31%" alt="Feed Interativo" />
+  <img src="./assets/feedback%20das%20quest%C3%B5es.png" width="31%" alt="Feedback Educativo" />
+</p>
 
 ---
 
@@ -88,12 +109,16 @@ Alinhada aos princípios e direitos do **ECA Digital** (proteção integral, pri
 ## 🗂️ Estrutura do Projeto
 
 ```text
+├── assets/                          # 🎨 Recursos gráficos e registros visuais (Pilar Visual - Adriano)
+│   ├── banner *.jpeg                # Banners educativos de alerta e prevenção
+│   ├── user_profile_*.jpeg          # Avatares ilustrados para os perfis simulados do feed
+│   └── *.png                        # Capturas de tela dos testes e validação do sistema
 ├── versao_web/                      # 🌐 Implementação Web Pura (HTML5 + CSS3 + JS)
 │   ├── index.html                   # Moldura mobile, telas de Boas-vindas, Feed e Resultado
 │   ├── style.css                    # Estilos de rede social, botões e cards responsivos
-│   └── script.js                    # Base de posts, avaliação Seguro/Perigo e Diagnóstico Final
+│   └── script.js                    # Base de 16 posts, avaliação Seguro/Perigo e Diagnóstico Final
 ├── versao_streamlit/                # 🐍 Implementação em Python + Streamlit
-│   ├── app.py                       # Aplicação completa com st.session_state e métricas
+│   ├── app.py                       # Aplicação completa com st.session_state, avatares e banners
 │   └── requirements.txt             # Dependências do ambiente Python
 ├── RASCUNHO_PARTE_TALITA.md         # Documentação técnica, fluxograma Mermaid e diário de testes
 ├── index.html                       # Redirecionamento automático na raiz para o GitHub Pages
@@ -174,121 +199,3 @@ start versao_web/index.html
 *Desenvolvido com ❤️ para promover a educação, segurança e proteção de crianças e adolescentes no ambiente digital.*
 
 </div>
-
-### 📊 Algoritmo de Contabilização e Diagnóstico Educativo Final
-* **Cálculo Automatizado de Desempenho**: Contabiliza o total de acertos, erros e o percentual de aproveitamento global.
-* **Classificação por Perfil de Segurança**:
-  * 🏆 **Guardião(ã) Digital ($\ge 80\%$):** Domínio elevado na identificação de riscos e proteção de dados.
-  * ⚠️ **Navegador(a) em Alerta ($50\%$ a $79\%$):** Reconhece ameaças comuns, mas requer atenção a golpes de engenharia social.
-  * 🚨 **Alta Vulnerabilidade Digital ($< 50\%$):** Alerta vermelho com orientações prioritárias de autoproteção.
-* **Relatório Item a Item**: Lista revisional detalhando cada postagem analisada e a diretriz correspondente do **ECA Digital**.
-
-### 🔄 Dupla Implementação (Web HTML/JS & Python/Streamlit)
-* O projeto conta com duas implementações completas da mesma lógica para validação comparativa e flexibilidade de uso em sala de aula.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-| Tecnologia | Finalidade |
-| :--- | :--- |
-| **Python 3** | Linguagem base para implementação da lógica de estado e regras do algoritmo |
-| **Streamlit** | Framework ágil em Python para construção da interface interativa e deploy em nuvem |
-| **HTML5** | Estruturação semântica das telas do simulador na versão Web Mobile |
-| **CSS3** | Estilização responsiva com moldura de smartphone, animações e variáveis de tema |
-| **JavaScript (ES6+)** | Manipulação dinâmica do DOM, controle de eventos e motor do diagnóstico educativo |
-| **GitHub Pages** | Hospedagem estática gratuita e instantânea da versão Web HTML/CSS/JS |
-| **Streamlit Cloud** | Hospedagem em nuvem da aplicação Python integrada continuamente ao GitHub |
-
----
-
-## 🗂️ Estrutura do Projeto
-
-```text
-├── versao_web/                      # 🌐 Implementação Web Pura (HTML5 + CSS3 + JS)
-│   ├── index.html                   # Moldura mobile, telas de Boas-vindas, Feed e Resultado
-│   ├── style.css                    # Estilos de rede social, botões e cards responsivos
-│   └── script.js                    # Base de posts, avaliação Seguro/Perigo e Diagnóstico Final
-├── versao_streamlit/                # 🐍 Implementação em Python + Streamlit
-│   ├── app.py                       # Aplicação completa com st.session_state e métricas
-│   └── requirements.txt             # Dependências do ambiente Python
-├── RASCUNHO_PARTE_TALITA.md         # Documentação técnica, fluxograma Mermaid e diário de testes
-├── index.html                       # Redirecionamento automático na raiz para o GitHub Pages
-├── requirements.txt                 # Dependências na raiz para integração com Streamlit Cloud
-└── README.md                        # Documentação geral do repositório
-```
-
----
-
-## 💻 Como Rodar o Projeto Localmente
-
-### 1. Clone o repositório
-```bash
-git clone https://github.com/skyzinha-chan/feed-seguro-eca-digital.git
-cd feed-seguro-eca-digital
-```
-
-### 2. Executando a Versão Web (HTML/CSS/JS)
-Não requer instalação de pacotes. Basta abrir o arquivo `versao_web/index.html` diretamente no navegador ou executar:
-```bash
-start versao_web/index.html
-```
-
-### 3. Executando a Versão Python (Streamlit)
-1. **Instale a dependência:**
-   ```bash
-   python -m pip install -r versao_streamlit/requirements.txt
-   ```
-2. **Inicie o servidor local:**
-   ```bash
-   python -m streamlit run versao_streamlit/app.py
-   ```
-   Acesse no navegador em `http://localhost:8501`.
-
----
-
-## 👥 Autores & Divisão Estratégica (Grupo 1)
-
-<div align="center">
-
-### **✨ Time de Desenvolvimento ✨**
-
-| Integrante | Papel no Projeto | Instituição / Curso | Redes & Contato |
-| :--- | :--- | :--- | :---: |
-| **Talita Mendonça Marques** | 💻 **Pilar de Programação** *(Lógica, Feed Interativo e Algoritmo de Diagnóstico)* | IFMS Câmpus Jardim • Licenciatura em Computação | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/skyzinha-chan) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/talita-mendonca-marques/) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram)](https://www.instagram.com/skyzinha_chan/) |
-| **Leonardo Vinicius da Costa Gomes** | 📚 **Pilar Teórico e de Conteúdo** *(Pesquisa ECA Digital e Situações-Problema)* | IFMS Câmpus Jardim • Licenciatura em Computação | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/767616) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin)](https://www.linkedin.com/in/leonardo-vinicius7766/) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram)](https://www.instagram.com/leonardo.vinicius07/) |
-| **Denner dos Santos Avalos** | 📋 **Coordenador (Pilar de Gestão)** *(Organização, Cronograma e Integração)* | IFMS Câmpus Jardim • Licenciatura em Computação | *Em atualização* |
-| **Adriano Hazime Rodrigues** | 🎨 **Pilar Visual e Documentação** *(Design, Elementos Gráficos e Registros)* | IFMS Câmpus Jardim • Licenciatura em Computação | *Em atualização* |
-
-<br>
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/skyzinha-chan">
-        <img src="https://github.com/skyzinha-chan.png" width="130px;" alt="Foto de Talita Mendonça Marques" style="border-radius:50%; border: 3px solid #4f46e5;"/>
-        <br />
-        <sub><b>Talita Mendonça Marques</b></sub>
-        <br />
-        <sub>💻 Pilar de Programação</sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/767616">
-        <img src="https://github.com/leonardo-vinicius77.png" width="130px;" alt="Foto de Leonardo Vinicius da Costa Gomes" style="border-radius:50%; border: 3px solid #4f46e5;"/>
-        <br />
-        <sub><b>Leonardo Vinicius da Costa Gomes</b></sub>
-        <br />
-        <sub>📚 Pilar Teórico & Conteúdo</sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-<br>
-
-**Licenciatura em Computação • IFMS Câmpus Jardim**  
-*Desenvolvido com ❤️ para promover a educação, segurança e proteção de crianças e adolescentes no ambiente digital.*
-
-</div>
-
