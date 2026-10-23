@@ -51,12 +51,6 @@
                     <p class="eca-note">
                         <strong>Objetivo Educativo (ECA Digital):</strong> Aprender na prática a identificar golpes, perfis falsos, exposição de dados pessoais e situações de risco nas redes.
                     </p>
-                    <div class="banners-welcome-grid">
-                        <img src="../assets/banner vermelho cuidado com os golpes..jpeg" alt="Cuidado com golpes">
-                        <img src="../assets/banner amarelo atencao a perfis falsos.jpeg" alt="Atenção a perfis falsos">
-                        <img src="../assets/banner azul proteja seus dados.jpeg" alt="Proteja os seus dados">
-                        <img src="../assets/banner verde pense antes de agir.jpeg" alt="Pense antes de clicar">
-                    </div>
                     <button id="btn-start" class="btn-primary">Iniciar Simulação 🚀</button>
                 </div>
             </section>
@@ -108,10 +102,9 @@
                     </div>
                 </div>
 
-                <!-- Feedback Imediato após a escolha -->
+                <!-- Feedback Imediato após a escolha (Versão limpa feita à mão) -->
                 <div class="feedback-box hidden" id="feedback-box">
                     <h3 id="feedback-title">Resultado</h3>
-                    <img id="feedback-banner" class="feedback-banner-img" src="" alt="Banner de Alerta Educativo">
                     <p id="feedback-explanation">Explicação detalhada sobre o post.</p>
                     <div class="eca-tag" id="feedback-eca">📌 Pilar ECA Digital: Proteção de Dados</div>
                     <button id="btn-next" class="btn-primary" onclick="proximoPost()">Próximo Post ➡️</button>
@@ -158,15 +151,39 @@
 
         </main>
 
-        <!-- Rodapé estilo navegação de app mobile -->
+        <!-- POP-UP / MODAL INTERATIVO (Para ECA Digital e Perfil Protegido + Banners) -->
+        <div id="popup-overlay" class="popup-overlay hidden" onclick="fecharPopupExterno(event)">
+            <div class="popup-modal">
+                <div class="popup-header">
+                    <h3 id="popup-title">Título do Pop-up</h3>
+                    <button class="popup-close" onclick="fecharPopup()" aria-label="Fechar">✖</button>
+                </div>
+                <div class="popup-body" id="popup-body">
+                    <!-- Conteúdo dinâmico inserido via JavaScript -->
+                </div>
+                <div class="popup-footer">
+                    <button class="btn-primary" style="margin-top: 0; padding: 10px;" onclick="fecharPopup()">Entendi! 👍</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé Interativo estilo navegação de app mobile -->
         <footer class="app-footer">
-            <span>🏠 Início</span>
-            <span>🛡️ ECA Digital</span>
-            <span>👤 Perfil Protegido</span>
+            <button type="button" class="footer-nav-btn active" id="nav-inicio" onclick="irParaTelaInicial()">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </button>
+            <button type="button" class="footer-nav-btn" id="nav-eca" onclick="abrirPopup('ECA')">
+                <span class="nav-icon">🛡️</span>
+                <span>ECA Digital</span>
+            </button>
+            <button type="button" class="footer-nav-btn" id="nav-perfil" onclick="abrirPopup('PERFIL')">
+                <span class="nav-icon">👤</span>
+                <span>Perfil Protegido</span>
+            </button>
         </footer>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-

@@ -591,7 +591,48 @@ def avancar_post():
 
 
 # ==============================================================================
-# 4. INTERFACE PRINCIPAL E FLUXO DE TELAS
+# 4. POP-UPS INTERATIVOS (@st.dialog) PARA O MENU INFERIOR
+# ==============================================================================
+@st.dialog("🛡️ Lei do ECA Digital (O que é?)")
+def popup_eca_digital():
+    st.markdown(
+        """
+        O **ECA Digital** estende a proteção integral do Estatuto da Criança e do Adolescente
+        para redes sociais, jogos e plataformas online:
+
+        * **🔒 Segurança e Privacidade por Padrão:** Contas de adolescentes devem ter o nível máximo de privacidade por padrão, impedindo coleta abusiva de dados e perfilamento comercial.
+        * **🚫 Combate ao Aliciamento e Cyberbullying:** Dever das plataformas de oferecer denúncia rápida e moderação contra intimidação sistemática (*cyberbullying*), discurso de ódio e aliciamento (*grooming*).
+        * **🎰 Proibição de Jogos de Azar e Publicidade Predatória:** É proibido direcionar anúncios de apostas, roletas ou promessas enganosas de ganho fácil para menores de idade.
+        * **👨‍👩‍👧 Educação Digital e Mediação Parental:** Incentivo ao uso consciente, verificação da Classificação Indicativa e diálogo familiar.
+        """
+    )
+
+
+@st.dialog("👤 O que é um Perfil Protegido?")
+def popup_perfil_protegido():
+    st.markdown(
+        """
+        Ter um **Perfil Protegido** significa configurar suas redes e adotar hábitos que impedem
+        golpistas e desconhecidos de acessarem sua vida pessoal:
+
+        1. **✅ Conta Privada e Autenticação em 2 Etapas (2FA):** Restrinja quem vê seus stories e ative o código extra de segurança.
+        2. **✅ Zero Exposição de Rotina e Documentos:** Nunca publique fotos com uniforme escolar, endereço, horários em que está sozinho(a) ou documentos (RG/CPF).
+        3. **✅ Desconfie de Prêmios Fáceis e Perfis Desconhecidos:** Confira os cartazes rápidos de prevenção abaixo:
+        """
+    )
+    for nome_banner in [
+        "banner azul proteja seus dados.jpeg",
+        "banner amarelo atencao a perfis falsos.jpeg",
+        "banner vermelho cuidado com os golpes..jpeg",
+        "banner verde pense antes de agir.jpeg",
+    ]:
+        caminho = ASSETS_DIR / nome_banner
+        if caminho.exists():
+            st.image(str(caminho), use_container_width=True)
+
+
+# ==============================================================================
+# 5. INTERFACE PRINCIPAL E FLUXO DE TELAS
 # ==============================================================================
 inicializar_estado()
 
@@ -614,23 +655,6 @@ if not st.session_state.iniciado:
         - Combate ao **cyberbullying, discurso de ódio** e valorização da cidadania digital.
         """
     )
-
-    # Exibe os 4 banners educativos do Adriano Hazime na tela inicial
-    c1, c2 = st.columns(2)
-    with c1:
-        b1 = ASSETS_DIR / "banner vermelho cuidado com os golpes..jpeg"
-        b2 = ASSETS_DIR / "banner azul proteja seus dados.jpeg"
-        if b1.exists():
-            st.image(str(b1), use_container_width=True)
-        if b2.exists():
-            st.image(str(b2), use_container_width=True)
-    with c2:
-        b3 = ASSETS_DIR / "banner amarelo atencao a perfis falsos.jpeg"
-        b4 = ASSETS_DIR / "banner verde pense antes de agir.jpeg"
-        if b3.exists():
-            st.image(str(b3), use_container_width=True)
-        if b4.exists():
-            st.image(str(b4), use_container_width=True)
 
     if st.button("🚀 Iniciar Simulação Agora", use_container_width=True, type="primary"):
         reiniciar_simulacao()
@@ -691,7 +715,7 @@ elif st.session_state.indice_atual < len(POSTS_DO_FEED):
                 registrar_escolha("PERIGO")
                 st.rerun()
     else:
-        # Exibe o Feedback Imediato da escolha
+        # Exibe o Feedback Imediato da escolha (versão limpa feita à mão)
         ultimo = st.session_state.historico[-1]
         if ultimo["acertou"]:
             st.success(f"🎯 **Você acertou!** Esta situação é **{post['gabarito']}**.")
@@ -699,11 +723,6 @@ elif st.session_state.indice_atual < len(POSTS_DO_FEED):
             st.error(
                 f"🚨 **Atenção!** Você marcou **{ultimo['escolha']}**, mas esta situação é **{post['gabarito']}**."
             )
-
-        # Exibe o Banner Educativo correspondente criado pelo Adriano Hazime
-        caminho_banner = ASSETS_DIR / post.get("banner_feedback", "")
-        if caminho_banner.exists():
-            st.image(str(caminho_banner), use_container_width=True)
 
         st.markdown(f"**Explicação:** {post['explicacao']}")
         st.caption(f"📌 **{post['pilar_eca']}**")
@@ -769,3 +788,21 @@ else:
     if st.button("🔄 Jogar Novamente", use_container_width=True, type="primary"):
         reiniciar_simulacao()
         st.rerun()
+
+# ==============================================================================
+# 6. BARRA DE NAVEGAÇÃO INFERIOR INTERATIVA (INÍCIO | ECA DIGITAL | PERFIL PROTEGIDO)
+# ==============================================================================
+st.divider()
+nav_col1, nav_col2, nav_col3 = st.columns(3)
+with nav_col1:
+    if st.button("🏠 Início", use_container_width=True):
+        st.session_state.iniciado = False
+        st.session_state.indice_atual = 0
+        st.session_state.respondido = False
+        st.rerun()
+with nav_col2:
+    if st.button("🛡️ ECA Digital", use_container_width=True):
+        popup_eca_digital()
+with nav_col3:
+    if st.button("👤 Perfil Protegido", use_container_width=True):
+        popup_perfil_protegido()

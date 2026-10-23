@@ -448,14 +448,6 @@ function avaliarPost(escolhaUsuario) {
     feedbackExplanation.textContent = post.explicacao;
     feedbackEca.textContent = `📌 ${post.pilarEca}`;
 
-    const feedbackBanner = document.getElementById("feedback-banner");
-    if (feedbackBanner && post.bannerFeedback) {
-        feedbackBanner.src = post.bannerFeedback;
-        feedbackBanner.style.display = "block";
-    } else if (feedbackBanner) {
-        feedbackBanner.style.display = "none";
-    }
-
     // Verifica se é o último post para mudar o texto do botão
     if (indiceAtual === postsDoFeed.length - 1) {
         btnNext.textContent = "Ver Diagnóstico Educativo Final 📊";
@@ -548,4 +540,99 @@ function gerarDiagnosticoEducativo() {
 function reiniciarSimulador() {
     iniciarSimulacao();
 }
+
+/**
+ * ============================================================================
+ * 6. NAVEGAÇÃO INFERIOR INTERATIVA E POP-UPS (ECA DIGITAL & PERFIL PROTEGIDO)
+ * ============================================================================
+ */
+function atualizarAbaAtiva(idBotao) {
+    document.querySelectorAll(".footer-nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+    const alvo = document.getElementById(idBotao);
+    if (alvo) alvo.classList.add("active");
+}
+
+function irParaTelaInicial() {
+    fecharPopup();
+    atualizarAbaAtiva("nav-inicio");
+    indiceAtual = 0;
+    currentIndexDisplay.textContent = 1;
+    totalPostsDisplay.textContent = postsDoFeed.length;
+    progressBar.style.width = "0%";
+    trocarTela(welcomeScreen);
+}
+
+function abrirPopup(tipo) {
+    const overlay = document.getElementById("popup-overlay");
+    const title = document.getElementById("popup-title");
+    const body = document.getElementById("popup-body");
+
+    if (tipo === "ECA") {
+        atualizarAbaAtiva("nav-eca");
+        title.textContent = "🛡️ Lei do ECA Digital (O que é?)";
+        body.innerHTML = `
+            <p style="margin-bottom: 12px;">
+                O <strong>ECA Digital</strong> estende a proteção integral do Estatuto da Criança e do Adolescente (Lei nº 8.069/1990 e marcos de proteção no ambiente digital) para redes sociais, jogos e plataformas online.
+            </p>
+            <div class="popup-card-item">
+                <strong>🔒 Segurança e Privacidade por Padrão</strong>
+                As plataformas devem configurar contas de adolescentes com o nível máximo de privacidade por padrão, impedindo coleta abusiva de dados e perfilamento comercial.
+            </div>
+            <div class="popup-card-item">
+                <strong>🚫 Combate ao Aliciamento e Cyberbullying</strong>
+                É dever das redes oferecer canais ágeis de denúncia e moderação ativa contra intimidação sistemática (cyberbullying), discurso de ódio e aliciamento (grooming).
+            </div>
+            <div class="popup-card-item">
+                <strong>🎰 Proibição de Jogos de Azar e Publicidade Predatória</strong>
+                É proibido direcionar anúncios de apostas, roletas ou promessas enganosas de ganho financeiro para crianças e adolescentes.
+            </div>
+            <div class="popup-card-item">
+                <strong>👨‍👩‍👧 Educação Digital e Mediação Parental</strong>
+                Promove a autonomia progressiva do jovem aliada ao diálogo familiar e à verificação da Classificação Indicativa.
+            </div>
+        `;
+    } else if (tipo === "PERFIL") {
+        atualizarAbaAtiva("nav-perfil");
+        title.textContent = "👤 O que é um Perfil Protegido?";
+        body.innerHTML = `
+            <p style="margin-bottom: 12px;">
+                Ter um <strong>Perfil Protegido</strong> significa configurar suas redes e adotar hábitos que impedem golpistas e desconhecidos de acessarem sua vida pessoal:
+            </p>
+            <div class="popup-card-item">
+                <strong>✅ 1. Conta Privada e Autenticação em 2 Etapas (2FA)</strong>
+                Restrinja quem vê seus stories e ative o código de segurança extra para ninguém invadir seu perfil.
+            </div>
+            <div class="popup-card-item">
+                <strong>✅ 2. Zero Exposição de Rotina e Documentos</strong>
+                Nunca publique fotos com uniforme escolar, endereço de casa, horários em que está sozinho(a) ou documentos (RG/CPF).
+            </div>
+            <p style="margin: 14px 0 8px; font-weight: 700; color: #4f46e5;">
+                📢 Cartazes Rápidos de Prevenção (Toque para observar):
+            </p>
+            <div class="popup-banners-list">
+                <img src="../assets/banner azul proteja seus dados.jpeg" alt="Proteja os seus dados">
+                <img src="../assets/banner amarelo atencao a perfis falsos.jpeg" alt="Atenção a perfis falsos">
+                <img src="../assets/banner vermelho cuidado com os golpes..jpeg" alt="Cuidado com golpes">
+                <img src="../assets/banner verde pense antes de agir.jpeg" alt="Pense antes de clicar">
+            </div>
+        `;
+    }
+
+    overlay.classList.remove("hidden");
+}
+
+function fecharPopup() {
+    const overlay = document.getElementById("popup-overlay");
+    if (overlay) overlay.classList.add("hidden");
+    atualizarAbaAtiva("nav-inicio");
+}
+
+function fecharPopupExterno(event) {
+    if (event.target.id === "popup-overlay") {
+        fecharPopup();
+    }
+}
+
 
